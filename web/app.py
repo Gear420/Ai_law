@@ -2,7 +2,10 @@ from flask import Flask
 from flask import send_from_directory
 from flask import render_template
 from flask import send_file
+from flask import request
 import os
+from web.genDocx import doc_algo
+
 
 #给flask引入下载文件能力.
 
@@ -21,6 +24,17 @@ def download(filename):
     # as_attachment=True 一定要写，不然会变成打开，而不是下载
 @app.route("/api/upload",methods=["GET","POST"])
 def upload():
+    if request.method == "GET":
+        return "it's get!"
+    if request.method == "POST":
+        form_dict = request.form
+        form_dict = form_dict.to_dict()
+        print(form_dict)
+        doc_algo.main_algo(form_dict)
+        return "suceess 上传！"
+
+
+
 
 
 
