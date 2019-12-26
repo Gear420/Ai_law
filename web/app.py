@@ -7,6 +7,7 @@ import os
 from genDocx import doc_algo
 
 
+
 #给flask引入下载文件能力.
 
 app = Flask(__name__)
