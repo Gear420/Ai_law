@@ -6,5 +6,5 @@ document = Document()
 # document.add_heading('这是个标题')
 # #document.add_paragraph('这是一个样式为 ListBullet 的段落', style='ListBullet')
 
-paragraph = document.add_paragraph('男方:{}，男，汉族,{}年{}月{}日生住{},'.format("",""))
-document.save("test.docx")
+paragraph = document.add_paragraph('男方:{}'.format("1"))
+document.save("test2.docx")
