@@ -12,12 +12,12 @@
 #othersaving 0 1
 #gongtongzhaiwu 0 1
 
+from docx import Document
+from docx.oxml.ns import qn
 
 #todo:是否有汽车
 
 def main_algo_generate(form,name):
-    from docx import Document
-    from docx.oxml.ns import qn
 
 
     document = Document()
@@ -35,7 +35,7 @@ def main_algo_generate(form,name):
     paragraph = document.add_paragraph('第一条 甲乙双方自愿协议离婚。')
     paragraph = document.add_paragraph('第二条 子女抚养')
 
-    for i in range(form['childnum']):
+    for i in range(int(form['childnum'])):
         paragraph = document.add_paragraph('基于不影响子女生活和学习的原则，双方本着相互体谅的态度，协助办理如下各项事宜：')
         if form['tanwangfangshi'] == 0:
             paragraph = document.add_paragraph('婚后于___（日期）出生的子女由男方抚养。女方每月支付抚养费___元；支付时间是'
@@ -57,7 +57,7 @@ def main_algo_generate(form,name):
             paragraph = document.add_paragraph('女方可在____（时间）早上八时接儿子到其居住地，于___（时间）送回王某'
                                                    '居住地，男方应为女方的探视提供必要的协助。如临时或春节探望，可提前'
                                                    '一天与王某协商，达成一致意见后方可探望。')
-    for i in range(form['childnum']):
+    for i in range(int(form['housenum'])):
         if form['fangdai']==0:
             paragraph = document.add_paragraph('位于___市___区/县路___号___单元___号，共___平方，登记户主为___的房产，现尚剩余贷'
                                                '款本金___万元，现协商房屋归___方所有，剩余贷款由___方承担。协议经登记生'
