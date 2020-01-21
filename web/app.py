@@ -4,6 +4,8 @@ from flask import request
 import os
 from web.genDocx import doc_algo
 from flask import Flask
+import random
+import string
 
 app = Flask(__name__)
 
@@ -28,11 +30,12 @@ def upload():
     if request.method == "GET":
         return "get"
     if request.method == "POST":
+        name = ''.join(random.sample(string.ascii_letters + string.digits, 8)) + '.docx'
         form_dict = request.form
         form_dict = form_dict.to_dict()
         #转换成字典
-        doc_algo.main_algo(form_dict)
-        return "form上传成功！"
+        doc_algo.main_algo(form_dict,name)
+        return name
 
 
 
